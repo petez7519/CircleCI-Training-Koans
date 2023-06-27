@@ -6,7 +6,7 @@ jobs:
       - image: cimg/base:2022.10
     steps:
       - checkout
-      - run: "run statements can actually contain a name and command argument as well"
+      - run: echo "run statements can actually contain a name and command argument as well"
       - run: echo "You can even have multiline commands."
       - restore_cache:
           keys:
