@@ -11,11 +11,11 @@ jobs:
       - run:
           name: Run Hello test
           command: |
-            bash test_hello.sh
+            bash CircleCI-Training-Koans/src/test_hello.sh
       - run:
           name: Run Goodbye test
           command: |
-            bash test_goodbye.sh
+            bash CircleCI-Training-Koans/src/test_goodbye.sh
 
 workflows:
   test-workflow:
