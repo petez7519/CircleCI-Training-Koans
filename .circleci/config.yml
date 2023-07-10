@@ -1,22 +1,21 @@
-version: 2.1
+ersion: 2.1
+
+orbs:
+  # Add Orb here
+
 jobs:
-  test:
+  build:
     docker:
       - image: cimg/base:2022.10
-    parallelism: 2
     steps:
       - checkout
-      # These two tests should run in parallel. Make it so!
-      - run:
-          name: Run Hello test
-          command: |
-            bash test_hello.sh
-      - run:
-          name: Run Goodbye test
-          command: |
-            bash test_goodbye.sh
+      # Add step below to install Ruby version 2.6.3
+
+      
+      - run: ruby -v
+
 workflows:
-  test-workflow:
+  run-jobs:
     jobs:
-      - test
+      - build
 
