@@ -44,3 +44,32 @@ Unarchiving cache...
   * https://circleci.com/docs/2.0/caching/#clearing-cache
   
 </details>
+
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: cimg/node:12.16
+    steps:
+      - checkout
+      # Uncomment below and set the key to point to the proper file
+      - restore_cache:
+          name: Restore Yarn Package Json Cache
+          #keys: v1-my-key
+          keys:  v2-my-key          
+      - run:
+          name: Install Dependencies
+          command: yarn install --immutable
+      # Uncomment below and set the key to point to the proper file
+      - save_cache:
+          name: package.json
+          #key: v1-my-key
+          key: v2-my-key
+          paths:
+            - ~/.cache/yarn
+
+workflows:
+  cache-save-and-restore:
+    jobs:
+      - build
