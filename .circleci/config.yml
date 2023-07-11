@@ -9,11 +9,11 @@ jobs:
     docker:
       - image: cimg/base:2022.10
     steps:
-      - checkout
+      - checkout:
       # Add step below to install Ruby version 2.6.3
-
+      -run: cp -r 04\ Parallelism/. .
       
-      - run: ruby -v
+      -run: ruby -v
 
 workflows:
   run-jobs:
