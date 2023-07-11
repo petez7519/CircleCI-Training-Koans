@@ -9,6 +9,7 @@ jobs:
       # Uncomment below and set the key to point to the proper file
       - restore_cache:
           name: Restore Yarn Package Json Cache
+          #keys: v1-my-key
           keys:  v2-my-key          
       - run:
           name: Install Dependencies
@@ -16,6 +17,7 @@ jobs:
       # Uncomment below and set the key to point to the proper file
       - save_cache:
           name: package.json
+          #key: v1-my-key
           key: v2-my-key
           paths:
             - ~/.cache/yarn
