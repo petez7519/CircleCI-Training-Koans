@@ -17,3 +17,25 @@ We have a config file that requires a specific Ruby version be installed, howeve
   * https://circleci.com/orbs/registry/orb/circleci/ruby#usage-examples
   
 </details>
+
+
+version: 2.1
+
+orbs:
+  # Add Orb here
+
+jobs:
+  build:
+    docker:
+      - image: cimg/ruby:2.6.3
+    steps:
+      - checkout
+      # Add step below to install Ruby version 2.6.3
+
+      
+      - run: ruby -v
+
+workflows:
+  run-jobs:
+    jobs:
+      - build
