@@ -9,14 +9,14 @@ jobs:
       # Uncomment below and set the key to point to the proper file
       - restore_cache:
           name: Restore Yarn Package Json Cache
-          keys:  my-key          
+          keys:  v2-my-key          
       - run:
           name: Install Dependencies
           command: yarn install --immutable
       # Uncomment below and set the key to point to the proper file
       - save_cache:
           name: package.json
-          key: my-key
+          key: v2-my-key
           paths:
             - ~/.cache/yarn
 
