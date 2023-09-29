@@ -1,14 +1,11 @@
 version: 2.1
-
 jobs:
   build:
     docker:
-      - image: cimg/base:2021.11
-    resource_class: petez7519/sample-project
+      - image: cimg/base:current
+    resource_class: petez7519/runner929
     steps:
-      - checkout
-      - run: echo "Hi I'm on Runners!"
-
+      - run: echo "Hi I'm on a Container Runner!"
 workflows:
   build-workflow:
     jobs:
