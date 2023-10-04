@@ -8,19 +8,17 @@ jobs:
     docker: 
       - image: cimg/base:2022.10 
     resource_class: petez7519/runner929
-
     steps:
-      - build-tools/test-results:
-          data-dir: ~/project/results
-          upload: true # Don't cheat! 
-
-# Add below this line, do not modify above
-      - store_test_results:
-          path: test-results 
-
-# Add above this line, do not modify below
-
+      - checkout
+      - run: <command>
+  test:
+    docker:
+      - image: cimg/<language>:<version TAG>
+    steps:
+      - checkout
+      - run: <command>
 workflows:
-  build-workflow:
+  build_and_test:
     jobs:
       - build
+      - test
