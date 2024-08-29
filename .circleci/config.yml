@@ -11,3 +11,4 @@ jobs:
           name: Run some commands
           command: |
             echo 'Hello from the Docker container!'
+            echo lsb_release -a
